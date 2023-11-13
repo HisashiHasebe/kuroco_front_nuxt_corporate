@@ -74,6 +74,7 @@ const { data: response } = await useFetch(
   {
     credentials: 'include',
     server: false,
+    watch: route.params.slug
   }
 );
 </script>
