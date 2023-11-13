@@ -69,12 +69,11 @@ const config = useRuntimeConfig();
 const { isLoggedIn } = useAuth();
 
 const route = useRoute();
-const { data: response } = await useFetch(
+const { data: response } = await useLazyFetch(
   `${config.public.kurocoApiDomain}/rcms-api/1/ltd-news/details/${route.params.slug}`,
   {
     credentials: 'include',
     server: false,
-    watch: route.params.slug
   }
 );
 </script>
