@@ -65,15 +65,21 @@
 
 <script setup>
 const config = useRuntimeConfig();
-
 const { isLoggedIn } = useAuth();
 
 const route = useRoute();
-const { data: response } = await useFetch(
-  `${config.public.kurocoApiDomain}/rcms-api/1/ltd-news/details/${route.params.slug}`,
-  {
-    credentials: 'include',
-    server: false,
-  }
-);
+let response;
+
+try {
+  const fetchResult = await useFetch(
+    `${config.public.kurocoApiDomain}/rcms-api/1/ltd-news/details/${route.params.slug}`,
+    {
+      credentials: 'include',
+      server: false,
+    }
+  );
+  response = fetchResult.data;
+} catch (error) {
+  console.error('Error fetching data:', error);
+}
 </script>
