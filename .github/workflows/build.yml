@@ -7,6 +7,9 @@ on:
     types: [created, edited]
   workflow_dispatch:
 
+env:
+  BRANCH: main
+
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
