@@ -2,13 +2,13 @@ name: Build and deploy to Kuroco front
 on:
   push:
     branches:
-      - main
+      - {/literal}{$branch}{literal}
   issue_comment:
     types: [created, edited]
   workflow_dispatch:
 
 env:
-  BRANCH: main
+  BRANCH: {/literal}{$branch}{literal}
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
