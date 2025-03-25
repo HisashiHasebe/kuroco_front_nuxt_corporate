@@ -47,7 +47,6 @@ const { data: news } = await useFetch(
       filter,
     },
     watch: [filter],
-    server: false, // in order to get query parameter, runs only client side
   }
 );
 const { data: newsConditionMaster } = await useFetch(
