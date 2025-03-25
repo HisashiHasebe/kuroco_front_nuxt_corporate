@@ -1,7 +1,7 @@
 import { defineNuxtConfig } from 'nuxt/config';
 
 export default defineNuxtConfig({
-   ssr: true,
+  ssr: true,
   runtimeConfig: {
     public: {
       kurocoApiDomain: 'https://hasebetest-nuxt-corporate.g.kuroco.app',
