@@ -70,6 +70,10 @@ useHead(() => {
         name: 'og:description',
         content: description,
       },
+      {
+        name: 'og:image',
+        content: 'https://kuroco.app/kuroco-card.png',
+      },
       // Twitter card meta
       {
         name: 'twitter:card',
