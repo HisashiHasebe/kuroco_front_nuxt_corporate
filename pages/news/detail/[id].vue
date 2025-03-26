@@ -39,7 +39,6 @@
 
 <script setup>
 const config = useRuntimeConfig();
-
 const route = useRoute();
 
 const { data: news } = await useFetch(
@@ -54,4 +53,15 @@ const { data: newsConditionMaster } = await useFetch(
     credentials: 'include',
   }
 );
+
+// メタ情報の追加
+useHead(() => ({
+  title: news.value?.details.subject || 'ニュース',
+  meta: [
+    {
+      name: 'description',
+      content: news.value?.details.description || '',
+    },
+  ],
+}));
 </script>
