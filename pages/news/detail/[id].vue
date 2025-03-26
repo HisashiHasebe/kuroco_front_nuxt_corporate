@@ -63,7 +63,11 @@ useHead(() => {
     title: subject,
     meta: [
       {
-        name: 'description',
+        name: 'og:title',
+        content: subject,
+      },
+      {
+        name: 'og:description',
         content: description,
       },
       // Twitter card meta
