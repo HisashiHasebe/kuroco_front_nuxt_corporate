@@ -54,14 +54,32 @@ const { data: newsConditionMaster } = await useFetch(
   }
 );
 
-// メタ情報の追加
-useHead(() => ({
-  title: news.value?.details.subject || 'ニュース',
-  meta: [
-    {
-      name: 'description',
-      content: news.value?.details.description || '',
-    },
-  ],
-}));
+// メタ情報の追加（title, description, Twitterカード）
+useHead(() => {
+  const subject = news.value?.details.subject || 'ニュース';
+  const description = news.value?.details.description || '';
+
+  return {
+    title: subject,
+    meta: [
+      {
+        name: 'description',
+        content: description,
+      },
+      // Twitter card meta
+      {
+        name: 'twitter:card',
+        content: 'summary',
+      },
+      {
+        name: 'twitter:title',
+        content: subject,
+      },
+      {
+        name: 'twitter:description',
+        content: description,
+      },
+    ],
+  };
+});
 </script>
